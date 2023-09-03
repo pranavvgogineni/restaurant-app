@@ -38,4 +38,10 @@ class SavedSearchesController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @saved_search = SavedSearch.find_by(id: params[:id])
+    @saved_search.destroy
+    render json: { message: "Search destroyed successfully" }
+  end
 end

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post "/saved_searches" => "saved_searches#create"
   get "/saved_searches/:id" => "saved_searches#show"
   patch "/saved_searches/:id" => "saved_searches#update"
+  delete "/saved_searches/:id" => "saved_searches#destroy"
 end

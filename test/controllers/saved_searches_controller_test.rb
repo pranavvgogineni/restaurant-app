@@ -33,4 +33,11 @@ class SavedSearchesControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal "Updated city", data["city"]
   end
+
+  test "destroy" do
+    assert_difference "SavedSearch.count", -1 do
+      delete "/saved_searches/#{SavedSearch.first.id}.json"
+      assert_response 200
+    end
+  end
 end
