@@ -25,4 +25,17 @@ class SavedSearchesController < ApplicationController
     @saved_search = SavedSearch.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @saved_search = SavedSearch.find_by(id: params[:id])
+    @saved_search.update(
+      radius: params[:radius] || @saved_search.radius,
+      city: params[:city] || @saved_search.city,
+      state: params[:state] || @saved_search.state,
+      state: params[:zip] || @saved_search.zip,
+      price_range: params[:price_range] || @saved_search.price_range,
+      cuisine: params[:cuisine] || @saved_search.cuisine,
+    )
+    render :show
+  end
 end

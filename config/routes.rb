@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "/saved_searches" => "saved_searches#index"
   post "/saved_searches" => "saved_searches#create"
   get "/saved_searches/:id" => "saved_searches#show"
+  patch "/saved_searches/:id" => "saved_searches#update"
 end
