@@ -16,4 +16,12 @@ class SavedSearchesControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/saved_searches/#{SavedSearch.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "user_id", "radius", "city", "state", "zip", "price_range", "cuisine"], data.keys
+  end
 end

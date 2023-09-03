@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
   get "/saved_searches" => "saved_searches#index"
   post "/saved_searches" => "saved_searches#create"
+  get "/saved_searches/:id" => "saved_searches#show"
 end

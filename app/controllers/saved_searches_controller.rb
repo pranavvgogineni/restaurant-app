@@ -20,4 +20,9 @@ class SavedSearchesController < ApplicationController
       render json: { errors: @saved_search.errors.full_messages }, status: 422
     end
   end
+
+  def show
+    @saved_search = SavedSearch.find_by(id: params[:id])
+    render :show
+  end
 end
