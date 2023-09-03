@@ -1,3 +1,3 @@
-belongs_to :user
 class SavedSearch < ApplicationRecord
+  belongs_to :user
 end
