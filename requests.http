@@ -1,0 +1,15 @@
+@jwt = Bearer
+
+### user create
+POST http://localhost:3000/users.json 
+Content-Type: application/json
+
+{
+  "first_name": "Pranav",
+  "last_name": "Gogineni",
+  "email": "pranav@test.com",
+  "password": "what",
+  "password_confirmation": "what",
+  "city": "Hartland",
+  "zipcode": 53029
+}
