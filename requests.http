@@ -1,4 +1,4 @@
-@jwt = Bearer
+@jwt = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTQwNDMwNjN9.n4uSyw0UX1rLzEUz0TD4AtJIE1goUg6oVlMCjOpuTVg"
 
 ### user create
 POST http://localhost:3000/users.json 
@@ -12,4 +12,13 @@ Content-Type: application/json
   "password_confirmation": "what",
   "city": "Hartland",
   "zipcode": 53029
+}
+
+### user log in
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "pranav@test.com",
+  "password": "what"
 }
