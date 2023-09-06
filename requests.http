@@ -1,4 +1,26 @@
-@jwt = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTQwNDMwNjN9.n4uSyw0UX1rLzEUz0TD4AtJIE1goUg6oVlMCjOpuTVg"
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTQwNDQ1ODl9.qZPNM3-yKFlnXmmlkuH0uS6yUPNLHoWou3cJqXsatwg
+
+### saved searches index
+GET http://localhost:3000/saved_searches.json
+Content-Type: application/json
+
+### saved searches show
+GET http://localhost:3000/saved_searches/1.json
+Content-Type: applications/application/json
+
+### create a saved search
+POST http://localhost:3000/saved_searches.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "radius": 100,
+  "city": "Brookfield",
+  "state": "Wisconsin",
+  "zip": 53045,
+  "price_range": 2,
+  "cuisine": "Italian"
+}
 
 ### user create
 POST http://localhost:3000/users.json 

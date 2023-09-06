@@ -1,12 +1,14 @@
 class SavedSearchesController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @saved_searches = SavedSearch.all
+    @saved_searches = current_user.SavedSearch.all
     render :index
   end
 
   def create
     @saved_search = SavedSearch.create(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       radius: params[:radius],
       city: params[:city],
       state: params[:state],
@@ -22,12 +24,12 @@ class SavedSearchesController < ApplicationController
   end
 
   def show
-    @saved_search = SavedSearch.find_by(id: params[:id])
+    @saved_search = current_user.SavedSearch.find_by(id: params[:id])
     render :show
   end
 
   def update
-    @saved_search = SavedSearch.find_by(id: params[:id])
+    @saved_search = current_user.SavedSearch.find_by(id: params[:id])
     @saved_search.update(
       radius: params[:radius] || @saved_search.radius,
       city: params[:city] || @saved_search.city,
@@ -40,7 +42,7 @@ class SavedSearchesController < ApplicationController
   end
 
   def destroy
-    @saved_search = SavedSearch.find_by(id: params[:id])
+    @saved_search = current_user.SavedSearch.find_by(id: params[:id])
     @saved_search.destroy
     render json: { message: "Search destroyed successfully" }
   end
