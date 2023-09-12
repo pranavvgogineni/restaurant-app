@@ -36,6 +36,16 @@ Content-Type: application/json
   "zipcode": 53029
 }
 
+### user update
+PATCH http://localhost:3000/users/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "city": "Atlanta",
+  "zipcode": 30329
+}
+
 ### user log in
 POST http://localhost:3000/sessions.json
 Content-Type: application/json
@@ -43,4 +53,15 @@ Content-Type: application/json
 {
   "email": "pranav@test.com",
   "password": "what"
+}
+
+### search
+POST http://localhost:3000/searches.json 
+Content-Type: application/json
+
+{
+  "cuisine": "Chinese",
+  "latitude": -33.8670522,
+  "longitude": 151.1957362,
+  "radius": 1500
 }

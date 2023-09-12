@@ -16,4 +16,16 @@ class UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
+
+  #fix this
+  def update
+    user = current_user
+    user.update(
+      first_name: params[:first_name] || user.first_name,
+      last_name: params[:last_name] || user.last_name,
+      city: params[:city] || user.city,
+      state: params[:state] || user.state,
+    )
+    render json: { message: "User updated" }
+  end
 end

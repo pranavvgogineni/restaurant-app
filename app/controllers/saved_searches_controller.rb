@@ -2,7 +2,7 @@ class SavedSearchesController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @saved_searches = current_user.SavedSearch.all
+    @saved_searches = current_user.saved_searches
     render :index
   end
 
@@ -14,7 +14,7 @@ class SavedSearchesController < ApplicationController
       state: params[:state],
       zip: params[:zip],
       price_range: params[:price_range],
-      cuisine: params[:price_range],
+      cuisine: params[:cuisine],
     )
     if @saved_search.valid?
       render :show
